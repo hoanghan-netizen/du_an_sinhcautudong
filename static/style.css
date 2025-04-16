@@ -1,0 +1,243 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    font-family: Arial, sans-serif;
+    background-image: url(https://tse3.mm.bing.net/th?id=OIP.C3H02ybne42oI3SGI7ZdywHaEK&pid=Api&P=0&h=220);
+    background-position:center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+  }
+  
+  .container {
+    position: relative;
+    background-image: url(https://cdn.sforum.vn/sforum/wp-content/uploads/2020/02/MetallicBlackByArthur1992aS-Polygon-wallpaper-desktop-1536x864-1.png);
+    background-size: cover;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    width: 100%;
+    max-width: 95%;
+    text-align: center;
+    backdrop-filter: blur(4px); 
+    border: 1px solid rgba(255, 255, 255, 0.3); 
+  }   
+
+  h1 {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 20px;
+  }
+  #phong_cach{
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 20px;
+  }
+  #tu_khoa{
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 20px;
+  }
+  
+  div {
+    margin-bottom: 20px;
+  }
+  
+  label {
+    font-size: 1.5em;
+    font-weight: bold;
+    color:olive;
+    display: block;
+    margin-bottom: 8px;
+    margin-left: -50.2em;
+  }
+  .lb1{
+    font-size: 1.5em;
+    font-weight: bold;
+    color:olive;
+    display: block;
+    margin-bottom: 8px;
+    margin-left: -52em;
+  }
+  
+  input[type="text"],
+  select {
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+  
+  input[type="text"]:focus,
+  select:focus {
+    outline: none;
+    border-color: #5d9bff;
+  }
+  
+  button {
+    background-color:darkslategrey;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size:3em;
+    cursor: pointer;
+    transition: background-color 0.7s ease;
+  }
+  .reload{
+    background-color:cadetblue; 
+    color: white; 
+    padding: 0.3em; 
+    
+    border: none;
+    border-radius: 5px;
+    cursor: pointer; 
+    font-size: 2em; 
+    font-weight: bold;
+    transition: background-color 0.9s ease, color 0.9s ease, border-color 0.9s ease; 
+  }
+  .reload:hover {
+    background-color:plum;
+  }
+  .reload:active{
+    transform: scale(0.95); 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); 
+  }
+
+  .reload1{
+    background-color:cadetblue; 
+    font-weight: bold;
+    color:red; 
+    padding: 0.3em; 
+    border: none;
+    border-radius: 5px;
+    cursor: pointer; 
+    font-size: 2em; 
+    transition: background-color 0.9s ease, color 0.9s ease, border-color 0.9s ease; 
+  }
+  .reload1:hover {
+    background-color:firebrick,
+  }
+  .reload1:active{
+    transform: scale(0.95); 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); 
+  }
+  button:hover {
+    background-color:brown;
+    padding-left: 30px;
+    padding-right: 30px;
+    color:dodgerblue;
+    font-weight: bold;
+
+  }
+  
+  .result {
+    font-family:'Times New Roman', Times, serif;
+    font-size: 15px;
+    font-weight: bold;
+    color: #2c3e50;
+    background-color:darkgrey;
+    padding: 25px;
+    border-radius: 8px;
+    margin-top: 20px;
+    white-space: pre-wrap;
+    min-height: 40px;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  }
+  
+  
+  .result.show {
+    display: block;
+  }
+  button.reset-btn {
+    background-color: #9e9e9e;
+  }
+  
+  button.reset-btn:hover {
+    background-color: #7d7d7d;
+  }
+
+  @keyframes shake {
+    0% { transform: translateX(0); }
+    25% { transform: translateX(-2px); }
+    50% { transform: translateX(2px); }
+    75% { transform: translateX(-2px); }
+    100% { transform: translateX(0); }
+  }
+  
+  h1 {
+    animation: shake 1.5s infinite ease-in-out;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color:palevioletred;
+    text-align: center;
+    font-size: 2.4em;
+    font-weight: bold;
+  }
+  .animal-icon{
+    font-size: 3em;
+  }
+
+  .button-group {
+    display: flex;
+    gap: 7em; 
+    margin-top: 20px;
+    text-align: center;
+    justify-content: center; 
+    align-items: center; 
+  }
+
+  .loading::after {
+    content: 'Đang tạo câu... ✨';
+    font-style: italic;
+    color: darkblue;
+  }
+  
+
+  @media (max-width: 768px) {
+    .container {
+      padding: 20px;
+    }
+  
+    label, .lb1 {
+      margin-left: 0;
+      text-align: center;
+    }
+  
+    h1 {
+      font-size: 1.5em;
+    }
+  
+    .animal-icon {
+      font-size: 2em;
+    }
+  
+    .reload,
+    .reload1 {
+      font-size: 1.2em;
+      padding: 0.5em 1em;
+    }
+  
+    .button-group {
+      flex-direction: column;
+      gap: 1em;
+    }
+  
+    .result {
+      font-size: 1em;
+      padding: 15px;
+    }
+  }
+ 
+  
+  

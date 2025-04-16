@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Demo Sinh Câu</title>
+    <link rel="stylesheet" href="{{url_for('static',filename='style.css')}}" />
+  </head>
+  <body>
+    <div class="container">
+      <span class="animal-icon">🐸🐸🐸🐸</span>
+      <h1>😊Demo Sinh Câu Tự Động 😊</h1>
+      <div>
+        <label class="lb1" for="tu_khoa">Nhập từ khóa:</label>
+        <input
+          type="text"
+          id="tu_khoa"
+          placeholder="Ví dụ: Yêu Hoàng Lệ Thu ❤️"
+        />
+      </div>
+      <div>
+        <label for="phong_cach">Chọn phong cách:</label>
+        <select id="phong_cach">
+          <option value="1">Hài hước</option>
+          <option value="2">Ngọt ngào</option>
+          <option value="3">Trầm lắng</option>
+          <option value="4">Trí tuệ</option>
+          <option value="5">Ngẫu hứng</option>
+        </select>
+      </div>
+      <div class="button-group">
+        <button class="reload" onclick="generateSentence()">💗Sinh Câu</button>
+        <button class="reload1" onclick="resetForm()">🔄 Reset</button>
+      </div>
+      <div
+        id="loadingMessage"
+        style="display: none; color: gray; font-style: italic; margin-top: 10px"
+      >
+        🔄 Đang tạo câu, vui lòng chờ….............
+      </div>
+
+      <div class="result" id="result"></div>
+    </div>
+
+    <script>
+      function generateSentence() {
+        const tuKhoa = document.getElementById("tu_khoa").value;
+        const phongCach = document.getElementById("phong_cach").value;
+        const loadingEl = document.getElementById("loadingMessage");
+        const resultEl = document.getElementById("result");
+
+        loadingEl.style.display = "block"; // ✅ Hiện dòng loading
+        resultEl.innerText = "";
+
+        fetch("/generate", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            tu_khoa: tuKhoa,
+            phong_cach: phongCach,
+          }),
+        })
+          .then((response) => response.json())
+          .then((data) => {
+            loadingEl.style.display = "none"; // ✅ Ẩn dòng loading
+            typeSentence(data.sentence, resultEl); // Gõ từng chữ ra
+          })
+          .catch((error) => {
+            loadingEl.style.display = "none";
+            resultEl.innerText = "❌ Có lỗi xảy ra khi tạo câu!";
+            console.error(error);
+          });
+      }
+
+      function typeSentence(sentence, element, delay = 40) {
+        let i = 0;
+        function type() {
+          if (i < sentence.length) {
+            element.innerHTML += sentence.charAt(i);
+            i++;
+            setTimeout(type, delay);
+          }
+        }
+        type();
+      }
+
+      function resetForm() {
+        document.getElementById("tu_khoa").value = "";
+        document.getElementById("phong_cach").value = "1";
+        const resultDiv = document.getElementById("result");
+        resultDiv.innerText = "";
+        resultDiv.classList.remove("show");
+      }
+    </script>
+  </body>
+</html>
